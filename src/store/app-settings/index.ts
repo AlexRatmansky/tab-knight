@@ -1,5 +1,5 @@
 import { Action, Reducer } from 'redux'
-import { ThemeTypes } from './../../../components/styles/themes'
+import { ThemeTypes } from '../../components/styles/themes'
 
 enum ActionType {
   DARK_THEME = 'DARK_THEME',

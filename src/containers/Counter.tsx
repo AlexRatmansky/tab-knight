@@ -2,8 +2,8 @@ import * as React from 'react'
 import { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { IAppState } from '../background/store'
-import { decrement, increment, reset } from '../background/store/counter'
+import { IAppState } from '../store'
+import { decrement, increment, reset } from '../store/counter'
 
 export const Counter: FC = () => {
   const {

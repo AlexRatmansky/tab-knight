@@ -1,6 +1,6 @@
-import { lstatSync, readdirSync } from 'fs'
-import { join } from 'path'
-import { red, reset, yellow } from './consoleColors'
+const { lstatSync, readdirSync } = require('fs')
+const { join } = require('path')
+const { red, reset, yellow } = require('./consoleColors')
 
 const isDirectory = (source) => {
   return lstatSync(source).isDirectory()
@@ -58,4 +58,4 @@ const locateContentScripts = (rootPath) => {
   return entries
 }
 
-export default locateContentScripts
+module.exports = locateContentScripts

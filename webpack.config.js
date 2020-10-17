@@ -8,7 +8,7 @@ const ExtensionReloader = require('webpack-extension-reloader')
 const locateContentScripts = require('./utils/locateContentScripts')
 
 const sourceRootPath = path.join(__dirname, 'src')
-const contentScriptsPath = path.join(sourceRootPath, 'ts', 'contentScripts')
+const contentScriptsPath = path.join(sourceRootPath, 'contentScripts')
 const distRootPath = path.join(__dirname, 'dist')
 const nodeEnv = process.env.NODE_ENV ? process.env.NODE_ENV : 'development'
 const webBrowser = process.env.WEB_BROWSER ? process.env.WEB_BROWSER : 'chrome'
@@ -39,9 +39,9 @@ const cleanWebpackPlugin =
 
 module.exports = {
   entry: {
-    background: path.join(sourceRootPath, 'ts', 'background', 'index.ts'),
-    options: path.join(sourceRootPath, 'ts', 'options', 'index.tsx'),
-    popup: path.join(sourceRootPath, 'ts', 'popup', 'index.tsx'),
+    background: path.join(sourceRootPath, 'background', 'index.ts'),
+    options: path.join(sourceRootPath, 'options', 'index.tsx'),
+    popup: path.join(sourceRootPath, 'popup', 'index.tsx'),
     ...contentScripts,
   },
   output: {
@@ -63,14 +63,14 @@ module.exports = {
   plugins: [
     new CheckerPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(sourceRootPath, 'html', 'options.html'),
+      template: path.join(__dirname, 'html', 'options.html'),
       inject: 'body',
       filename: 'options.html',
       title: 'Web Extension Starter - Options Page',
       chunks: ['options'],
     }),
     new HtmlWebpackPlugin({
-      template: path.join(sourceRootPath, 'html', 'popup.html'),
+      template: path.join(__dirname, 'html', 'popup.html'),
       inject: 'body',
       filename: 'popup.html',
       title: 'Web Extension Starter - Popup Page',
@@ -79,13 +79,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.join(sourceRootPath, 'assets'),
-          to: path.join(distRootPath, 'assets'),
-        },
-        {
-          from: path.join(sourceRootPath, 'manifest.json'),
-          to: path.join(distRootPath, 'manifest.json'),
-          toType: 'file',
+          from: path.join(__dirname, 'static'),
+          to: path.join(distRootPath, 'static'),
         },
       ],
     }),
