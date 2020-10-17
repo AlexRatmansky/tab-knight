@@ -1,0 +1,50 @@
+{
+  "name": "Tab Knight",
+  "author": "AlexRatmansky",
+  "version": "0.1",
+  "description": "Creates keyboard shortcuts to manipulate tabs",
+  "manifest_version": 2,
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "bookmarks",
+    "cookies",
+    "storage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*/*"
+  ],
+  "background": {
+    "persistent": true,
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_title": "Web Extension Starter",
+    "default_icon": "assets/icon-48.png",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "js": ["counter.js"],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "commands": {
+    "toggle-pin": {
+      "description": "Toggle tab pin",
+      "suggested_key": {
+        "default": "Alt+Shift+K"
+      }
+    }
+  }
+}
