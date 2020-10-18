@@ -25,32 +25,32 @@ export const Counter: FC = () => {
   }
 
   const handleTogglePin = () => {
-    chrome.runtime.sendMessage({ greeting: 'toggle-pin' }, (response) => {
-      console.log(response.farewell)
+    chrome.runtime.sendMessage({ action: 'toggle-pin' }, (response) => {
+      console.log(response.message)
     })
   }
 
   const handleMoveTabLeft = () => {
-    chrome.runtime.sendMessage({ greeting: 'move-tab-left' }, (response) => {
-      console.log(response.farewell)
+    chrome.runtime.sendMessage({ action: 'move-tab-left' }, (response) => {
+      console.log(response.message)
     })
   }
 
   const handleMoveTabRight = () => {
-    chrome.runtime.sendMessage({ greeting: 'move-tab-right' }, (response) => {
-      console.log(response.farewell)
+    chrome.runtime.sendMessage({ action: 'move-tab-right' }, (response) => {
+      console.log(response.message)
     })
   }
 
   const handleMoveTabStart = () => {
-    chrome.runtime.sendMessage({ greeting: 'move-tab-start' }, (response) => {
-      console.log(response.farewell)
+    chrome.runtime.sendMessage({ action: 'move-tab-start' }, (response) => {
+      console.log(response.message)
     })
   }
 
   const handleMoveTabEnd = () => {
-    chrome.runtime.sendMessage({ greeting: 'move-tab-end' }, (response) => {
-      console.log(response.farewell)
+    chrome.runtime.sendMessage({ action: 'move-tab-end' }, (response) => {
+      console.log(response.message)
     })
   }
 
